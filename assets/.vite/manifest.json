@@ -1,0 +1,12 @@
+{
+  "assets/theme.css": {
+    "file": "theme.91j4Kq1I.min.css",
+    "isEntry": true,
+    "src": "assets/theme.css"
+  },
+  "assets/theme.js": {
+    "file": "theme.ALA98KxD.min.js",
+    "isEntry": true,
+    "src": "assets/theme.js"
+  }
+}

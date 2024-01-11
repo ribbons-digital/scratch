@@ -1,0 +1,48 @@
+<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {{ page.title | escape }}
+  </h1>
+  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {{ page.content }}
+
+    <p class="text-blue-800">Hello</p>
+    <div x-data="{ open: false }">
+      <button x-on:click="open = ! open">Toggle Dropdown</button>
+
+      <div x-show="open">Dropdown Contents...</div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "main-page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding-top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding-bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
