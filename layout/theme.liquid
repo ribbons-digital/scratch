@@ -30,6 +30,7 @@
       render 'vite-tag' with 'theme.css'
       render 'vite-tag' with 'theme.js'
     %}
+
     {{ content_for_header }}
   </head>
 
@@ -38,5 +39,10 @@
     <main>
       {{ content_for_layout }}
     </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
