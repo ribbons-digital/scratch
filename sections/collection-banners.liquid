@@ -1,4 +1,4 @@
-<section class="mb-32 mt-24 px-4 md:px-8 relative">
+<section class="mb-32 mt-12 md:mt-24 px-4 md:px-8 relative">
   <div
     class="mb-8 flex items-center justify-between"
   >
@@ -10,15 +10,13 @@
   </div>
   <div class="flex track">
     <ul class="flex flex-nowrap items-center space-x-8 scroll-p-3 overflow-x-scroll scroll-smooth no-scrollbar snap-x snap-mandatory">
-      {%- liquid
-        render 'collection-banner', id: 'one'
-      -%}
-      {%- render 'collection-banner', id: 'two' -%}
-      {%- render 'collection-banner', id: 'three' -%}
-      {%- render 'collection-banner', id: 'four' -%}
-      {%- render 'collection-banner', id: 'five' -%}
+      {% for collection in section.settings.collection_linklist limit: 5 %}
+        {%- liquid
+          render 'collection-banner', id: forloop.index, collection: collection
+        -%}
+      {% endfor %}
     </ul>
-    <div class="track__indicators absolute left-1/2 -bottom-12 flex" aria-hidden="true">
+    <div class="track__indicators absolute left-1/2 -bottom-12 flex md:hidden">
       <a href="#one" class="indicator"></a>
       <a href="#two" class="indicator"></a>
       <a href="#three" class="indicator"></a>
@@ -159,6 +157,14 @@
 {
   "name": "Categories",
   "tag": "section",
-  "limit": 1
+  "limit": 1,
+  "settings": [
+    {
+      "type": "collection_list",
+      "label": "Collections",
+      "id": "collection_linklist",
+      "limit": 5
+    }
+  ]
 }
 {% endschema %}
