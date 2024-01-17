@@ -23,7 +23,14 @@
       {{
         section.settings.logo
         | image_url: width: 600
-        | image_tag: widths: widths, height: logo_height, width: logo_width, alt: logo_alt, sizes: sizes, preload: true
+        | image_tag:
+          widths: widths,
+          height: logo_height,
+          width: logo_width,
+          alt: logo_alt,
+          sizes: sizes,
+          preload: true,
+          class: 'rounded-md bg-cover bg-center object-cover object-center'
       }}
     </a>
   {%- else -%}
@@ -34,9 +41,9 @@
       <h2>{{ shop.name }}</h2>
     </a>
   {%- endif -%}
-  <header class="align-center fixed bottom-1 left-1/2 right-auto top-auto z-40 flex h-[4.375rem] w-[400px] -translate-x-1/2 rounded-md bg-white px-3 drop-shadow-md lg:bottom-auto lg:left-[65%] lg:top-10 lg:w-[66%] lg:px-8">
+  <header class="align-center fixed bottom-1 left-1/2 right-auto top-auto z-40 flex h-[4.375rem] w-[360px] md:w-[400px] -translate-x-1/2 rounded-md bg-white px-3 drop-shadow-md lg:bottom-auto lg:left-[65%] lg:top-10 lg:w-[66%] lg:px-8">
     <nav class="w-full text-sm relative hidden items-stretch justify-between lg:flex lg:flex-1">
-      <div class="flex items-center justify-between lg:justify-start lg:space-x-8  w-[66%]">
+      <div class="flex items-center justify-between lg:justify-start lg:space-x-8 w-[66%]">
         {%- assign link_title_handle = link.title | handle -%}
         {%- assign highlight_links = 'general.header.highlight_links'
           | t

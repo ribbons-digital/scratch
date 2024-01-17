@@ -1,0 +1,164 @@
+<section class="mb-32 mt-24 px-4 md:px-8 relative">
+  <div
+    class="mb-8 flex items-center justify-between"
+  >
+    <h2
+      class="tracking-tight text-2xl font-bold text-[#00696C]"
+    >
+      Ready for...
+    </h2>
+  </div>
+  <div class="flex track">
+    <ul class="flex flex-nowrap items-center space-x-8 scroll-p-3 overflow-x-scroll scroll-smooth no-scrollbar snap-x snap-mandatory">
+      {%- liquid
+        render 'collection-banner', id: 'one'
+      -%}
+      {%- render 'collection-banner', id: 'two' -%}
+      {%- render 'collection-banner', id: 'three' -%}
+      {%- render 'collection-banner', id: 'four' -%}
+      {%- render 'collection-banner', id: 'five' -%}
+    </ul>
+    <div class="track__indicators absolute left-1/2 -bottom-12 flex" aria-hidden="true">
+      <a href="#one" class="indicator"></a>
+      <a href="#two" class="indicator"></a>
+      <a href="#three" class="indicator"></a>
+      <a href="#four" class="indicator"></a>
+      <a href="#five" class="indicator"></a>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .track__indicators {
+    height: 20px;
+    translate: -50% 0;
+  }
+
+  :is(li, .indicator):nth-of-type(1) {
+    --hue: 181.67;
+  }
+  :is(li, .indicator):nth-of-type(2) {
+    --hue: 181.67;
+  }
+  :is(li, .indicator):nth-of-type(3) {
+    --hue: 181.67;
+  }
+  :is(li, .indicator):nth-of-type(4) {
+    --hue: 181.67;
+  }
+  :is(li, .indicator):nth-of-type(5) {
+    --hue: 181.67;
+  }
+
+  .indicator {
+    --color: hsl(var(--hue, 0) 100% 21.18%);
+    background: linear-gradient(var(--color), var(--color)) padding-box;
+    flex: 1;
+    border-radius: 100px;
+    height: 100%;
+    min-width: 20px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border: 4px solid transparent;
+  }
+
+  .indicator::after {
+    content: '';
+    border-radius: 100px;
+    position: absolute;
+    inset: 0;
+    background: hsl(var(--hue) 90% 30%);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .track {
+      timeline-scope: --one, --two, --three, --four, --five;
+    }
+
+    .track__indicators {
+      aspect-ratio: 7 / 1;
+    }
+
+    li:nth-of-type(1) {
+      view-timeline: --one inline;
+    }
+    li:nth-of-type(2) {
+      view-timeline: --two inline;
+    }
+    li:nth-of-type(3) {
+      view-timeline: --three inline;
+    }
+    li:nth-of-type(4) {
+      view-timeline: --four inline;
+    }
+    li:nth-of-type(5) {
+      view-timeline: --five inline;
+    }
+
+    .indicator {
+      --buffer: calc(var(--card-width) * 0.9);
+      animation: blink both linear;
+      animation-range: contain calc(50% - var(--buffer)) contain calc(50% + var(--buffer));
+    }
+
+    .indicator:nth-of-type(1) {
+      animation-timeline: --one;
+    }
+    .indicator:nth-of-type(2) {
+      animation-timeline: --two;
+    }
+    .indicator:nth-of-type(3) {
+      animation-timeline: --three;
+    }
+    .indicator:nth-of-type(4) {
+      animation-timeline: --four;
+    }
+    .indicator:nth-of-type(5) {
+      animation-timeline: --five;
+    }
+
+    @keyframes blink {
+      50% {
+        flex: 3;
+      }
+    }
+
+    .indicator::after {
+      --buffer: calc(var(--card-width) * 0.9);
+      opacity: 0;
+      animation: show both linear;
+      animation-range: contain calc(50% - var(--buffer)) contain calc(50% + var(--buffer));
+    }
+
+    .indicator:nth-of-type(1)::after {
+      animation-timeline: --one;
+    }
+    .indicator:nth-of-type(2)::after {
+      animation-timeline: --two;
+    }
+    .indicator:nth-of-type(3)::after {
+      animation-timeline: --three;
+    }
+    .indicator:nth-of-type(4)::after {
+      animation-timeline: --four;
+    }
+    .indicator:nth-of-type(5)::after {
+      animation-timeline: --five;
+    }
+
+    @keyframes show {
+      50% {
+        opacity: 1;
+      }
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Categories",
+  "tag": "section",
+  "limit": 1
+}
+{% endschema %}
