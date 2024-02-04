@@ -5,13 +5,26 @@
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {{ page.content }}
 
-    {% comment %}
-      <div x-data="{ open: false }">
-        <button x-on:click="open = ! open">Toggle Dropdown</button>
-
-        <div x-show="open">Dropdown Contents...</div>
+    <div class="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8 mt-4">
+      <div class="-mx-px grid grid-cols-2 border-l border-t border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
+        {% render 'product-grid-item' %}
       </div>
-    {% endcomment %}
+    </div>
+
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+        {% render 'collection-grid-item' %}
+        {% render 'collection-grid-item' %}
+        {% render 'collection-grid-item' %}
+      </div>
+    </div>
   </div>
 </div>
 {% schema %}

@@ -8,6 +8,9 @@ dependencies:
   alpinejs:
     specifier: ^3.13.3
     version: 3.13.3
+  lucide:
+    specifier: ^0.321.0
+    version: 0.321.0
 
 devDependencies:
   '@tailwindcss/aspect-ratio':
@@ -1195,6 +1198,10 @@ packages:
     resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}
     engines: {node: 14 || >=16.14}
     dev: true
+
+  /lucide@0.321.0:
+    resolution: {integrity: sha512-vAAkWR5yj14mExueAAgIm7UZpft9D8equCJOH+JnP8R5Xh2NB3OJHlH5UWNTchJ8vFBidHuS/BKYROluNvDNGQ==}
+    dev: false
 
   /memorystream@0.3.1:
     resolution: {integrity: sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw==}
