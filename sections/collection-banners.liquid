@@ -10,10 +10,13 @@
   </div>
   <div class="flex track">
     <ul class="flex flex-nowrap items-center space-x-8 scroll-p-3 overflow-x-scroll scroll-smooth no-scrollbar snap-x snap-mandatory">
-      {% for collection in section.settings.collection_linklist limit: 5 %}
-        {%- liquid
-          render 'collection-banner', id: forloop.index, collection: collection
-        -%}
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'collection' -%}
+            {%- liquid
+              render 'collection-banner', id: forloop.index, collection: block.settings.collection
+            -%}
+        {% endcase %}
       {% endfor %}
     </ul>
     <div class="track__indicators absolute left-1/2 -bottom-12 flex md:hidden">
@@ -155,9 +158,27 @@
 
 {% schema %}
 {
-  "name": "Categories",
+  "name": "Collection Banners",
   "tag": "section",
   "limit": 1,
+  "presets": [
+    {
+      "name": "Collection Banners"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "label": "Collection",
+          "id": "collection"
+        }
+      ]
+    }
+  ],
   "settings": [
     {
       "type": "collection_list",

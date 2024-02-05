@@ -2,15 +2,19 @@
   <div class="w-full h-full">
     <a class="group relative flex h-full w-full flex-col items-center justify-center" href="{{ collection.url }}">
       <div class="relative flex aspect-square h-full w-full flex-col items-center justify-end">
-        {{
-          collection.image
-          | image_url: height: 800, crop: 'center'
-          | image_tag:
-            class: 'absolute h-full w-full rounded-md bg-cover bg-center object-cover object-center',
-            preload: true,
-            lazy: true,
-            alt: 'Collection image'
-        }}
+        {% if collection.image %}
+          {{
+            collection.image
+            | image_url: height: 800, crop: 'center'
+            | image_tag:
+              class: 'absolute h-full w-full rounded-md bg-cover bg-center object-cover object-center',
+              preload: true,
+              lazy: true,
+              alt: 'Collection image'
+          }}
+        {% else %}
+          {{ 'collection-1' | placeholder_svg_tag }}
+        {% endif %}
         <div class="mb-8 flex w-[80%] items-center justify-between">
           <div class="relative text-xl md:text-2xl text-white group transition duration-300">
             {{ collection.title }}
