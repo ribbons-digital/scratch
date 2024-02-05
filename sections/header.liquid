@@ -72,12 +72,23 @@
         >
           <i data-lucide="search"></i>
         </a>
-        <a
-          href="#"
-          class="hidden items-center rounded-sm bg-darkGray bg-opacity-0 p-2 lg:flex hover:bg-opacity-10"
+        <div
+          x-data="
+            {
+                slideOverOpen: false
+            }
+          "
+          class="relative z-50 w-auto h-auto"
         >
-          <i data-lucide="shopping-cart"></i>
-        </a>
+          <a
+            href="#"
+            @click="slideOverOpen=true"
+            class="hidden items-center rounded-sm bg-darkGray bg-opacity-0 p-2 lg:flex hover:bg-opacity-10"
+          >
+            <i data-lucide="shopping-cart"></i>
+          </a>
+          {% render 'cart-slide-over' %}
+        </div>
       </div>
     </nav>
     <div
@@ -98,12 +109,25 @@
         >
           <i data-lucide="search"></i>
         </button>
-        <button
-          aria-label="Cart"
-          class="z-40 flex aspect-square h-full w-[30%] items-center justify-center rounded-md bg-[#F0F1EB] p-2 text-sm font-bold text-[#002021] duration-200 lg:w-[50%] lg:flex-1 lg:bg-darkGray lg:bg-opacity-0 lg:hover:bg-opacity-10"
+
+        <div
+          x-data="
+            {
+                slideOverOpen: false
+            }
+          "
+          class="aspect-square h-full w-[30%]"
         >
-          <i data-lucide="shopping-cart"></i>
-        </button>
+          <button
+            aria-label="Cart"
+            @click="slideOverOpen=true"
+            class="z-40 flex w-full h-full items-center justify-center rounded-md bg-[#F0F1EB] p-2 text-sm font-bold text-[#002021] duration-200 lg:w-[50%] lg:flex-1 lg:bg-darkGray lg:bg-opacity-0 lg:hover:bg-opacity-10"
+          >
+            <i data-lucide="shopping-cart"></i>
+          </button>
+          {% render 'cart-slide-over' %}
+        </div>
+
         <button
           aria-label="Menu"
           class="z-40 flex aspect-square h-full w-[30%] items-center justify-center rounded-md bg-[#F0F1EB] p-2 text-sm font-bold text-[#002021] duration-200 lg:w-[50%] lg:flex-1 lg:bg-darkGray lg:bg-opacity-0 lg:hover:bg-opacity-10"
