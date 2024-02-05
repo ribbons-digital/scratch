@@ -11,7 +11,7 @@
     "vite:dev": "vite",
     "shopify:push": "shopify theme push",
     "build": "vite build",
-    "tailwind:watch": "pnpx tailwindcss -i ./frontend/entrypoints/index.css -o ./frontend/entrypoints/theme.css --watch"
+    "tailwind:watch": "pnpm dlx tailwindcss -i ./frontend/entrypoints/index.css -o ./frontend/entrypoints/theme.css --watch"
   },
   "keywords": [],
   "author": "",
