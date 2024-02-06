@@ -5,7 +5,7 @@
     <h2
       class="tracking-tight text-4xl font-bold text-[#00696C]"
     >
-      Ready for...
+      {{ section.settings.section_title }}
     </h2>
   </div>
   <div class="flex track">
@@ -19,13 +19,16 @@
         {% endcase %}
       {% endfor %}
     </ul>
-    <div class="track__indicators absolute left-1/2 -bottom-12 flex md:hidden">
-      <a href="#1" class="indicator"></a>
-      <a href="#2" class="indicator"></a>
-      <a href="#3" class="indicator"></a>
-      <a href="#4" class="indicator"></a>
-      <a href="#5" class="indicator"></a>
-    </div>
+    {% if section.settings.show_mobile_navigation %}
+      <div class="track__indicators absolute left-1/2 -bottom-12 flex md:hidden">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'collection' -%}
+              <a href="#{{ forloop.index }}" class="indicator"></a>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -160,7 +163,6 @@
 {
   "name": "Collection Banners",
   "tag": "section",
-  "limit": 1,
   "presets": [
     {
       "name": "Collection Banners"
@@ -179,12 +181,19 @@
       ]
     }
   ],
+  "max_blocks": 5,
   "settings": [
     {
-      "type": "collection_list",
-      "label": "Collections",
-      "id": "collection_linklist",
-      "limit": 5
+      "type": "text",
+      "label": "Title",
+      "id": "section_title",
+      "default": "Ready for..."
+    },
+    {
+      "type": "checkbox",
+      "label": "Show mobile navigation",
+      "id": "show_mobile_navigation",
+      "default": true
     }
   ]
 }

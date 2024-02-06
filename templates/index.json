@@ -5,7 +5,10 @@
     },
     "collection-banners": {
       "type": "collection-banners"
+    },
+    "Hero": {
+      "type": "hero"
     }
   },
-  "order": ["main-page", "collection-banners"]
+  "order": ["main-page", "hero", "collection-banners"]
 }
