@@ -7,7 +7,7 @@
       {%- case block.type -%}
         {%- when 'text' -%}
           {%- if block.settings.text != blank -%}
-            <p>
+            <p class="text-[{{ block.settings.text_color }}]">
               {{ block.settings.text }}
             </p>
           {%- endif -%}
@@ -23,7 +23,8 @@
     {
       "type": "color_background",
       "id": "background_color",
-      "label": "Background color"
+      "label": "Background color",
+      "default": "#00696C"
     },
     {
       "type": "range",
@@ -105,6 +106,11 @@
           "type": "richtext",
           "id": "text",
           "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
         },
         {
           "type": "header",
