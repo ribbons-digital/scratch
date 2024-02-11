@@ -1,12 +1,12 @@
-<div aria-hidden="true" class="relative mx-auto overflow-hidden h-[calc(100vh-110px)] md:mx-8 md:rounded-md">
+<div aria-hidden="true" class="relative mx-auto overflow-hidden min-h-[calc(100svh-110px)] md:mx-8 md:rounded-md">
   <img
     src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
     alt=""
-    class="h-full w-full object-cover object-center h-[calc(100vh-110px)]"
+    class="h-full w-full object-cover object-center min-h-[calc(100svh-110px)]"
   >
   <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
 
-  <div class="absolute inset-0 mx-auto flex max-w-3xl flex-col items-center justify-center px-6 text-center lg:px-0 h-[calc(100vh-110px)]">
+  <div class="absolute inset-0 mx-auto flex max-w-3xl flex-col items-center justify-center px-6 text-center lg:px-0 min-h-[calc(100svh-110px)]">
     <h1 class="text-4xl font-bold tracking-tight text-white lg:text-6xl">New arrivals are here</h1>
     <p class="mt-4 text-xl text-white">
       The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while
@@ -22,8 +22,107 @@
 
 {% schema %}
 {
-  "name": "hero",
+  "name": "Hero",
   "tag": "section",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "name": "Image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Introducing"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Hero Image Title"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Text",
+          "default": "<p>Tell your brand's story through images.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Text",
+          "default": "View products",
+          "info": "Leave blank to link entire image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "Color",
+          "default": "btn--white",
+          "options": [
+            {
+              "value": "btn--primary",
+              "label": "Bright accent"
+            },
+            {
+              "value": "btn--secondary",
+              "label": "Secondary accent"
+            },
+            {
+              "value": "btn--neutral",
+              "label": "Text color"
+            },
+            {
+              "value": "btn--black",
+              "label": "Black"
+            },
+            {
+              "value": "btn--white",
+              "label": "White"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "btn",
+          "options": [
+            {
+              "value": "btn",
+              "label": "Solid button"
+            },
+            {
+              "value": "btn--soft",
+              "label": "Soft button"
+            },
+            {
+              "value": "btn--outline",
+              "label": "Outlined button"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Hero",

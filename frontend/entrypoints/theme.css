@@ -811,6 +811,10 @@ video {
   height: 100%;
 }
 
+.min-h-\[calc\(100svh-110px\)\] {
+  min-height: calc(100svh - 110px);
+}
+
 .w-1\/2 {
   width: 50%;
 }
