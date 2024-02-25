@@ -10,5 +10,5 @@
       "type": "hero"
     }
   },
-  "order": ["main-page", "hero", "collection-banners"]
+  "order": ["main-page", "Hero", "collection-banners"]
 }
