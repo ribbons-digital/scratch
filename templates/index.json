@@ -8,7 +8,10 @@
     },
     "Hero": {
       "type": "hero"
+    },
+    "Product Grid": {
+      "type": "section-product-grid"
     }
   },
-  "order": ["main-page", "Hero", "collection-banners"]
+  "order": ["main-page", "Hero", "collection-banners", "Product Grid"]
 }
